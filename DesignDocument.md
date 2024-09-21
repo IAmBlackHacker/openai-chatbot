@@ -1,7 +1,7 @@
 # Design Document
 
 ## Architecture
-![img.png](architecture.png)
+![img.png](images/architecture.png)
 
 #### **User Interface (UI):**
 Technology Options: Web-based (React, Vue.js), Mobile (Flutter, React Native), Chat Platforms (Slack, Discord).
@@ -16,7 +16,7 @@ Technology Options: OpenAI's GPT-4 API, LLM
 Technology Options: SQL/NoSQL databases (PostgreSQL, MongoDB).
 
 ## Data Flow
-![img_2.png](data_flow.png)
+![img_2.png](images/data_flow.png)
 
 #### **User Query**: 
 User submits a question via the UI.
