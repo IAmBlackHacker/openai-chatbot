@@ -1,10 +1,21 @@
 import React, {Dispatch, SetStateAction, useState} from 'react';
 import './App.css';
 import {FormControl, InputGroup, Form, Button} from "react-bootstrap";
+import {BackendGETRequest, BackendPOSTRequest} from "./app/webrequests/BackendRequest";
+import {QUERY_URL} from "./app/constants/Constant";
 
 interface MessageInterface {
     name: string;
     message: string;
+}
+
+function SendMessage(message: string, setMessage: Dispatch<SetStateAction<MessageInterface[]>>) {
+    BackendPOSTRequest(QUERY_URL, {
+        "query": message
+    }, (data) => {
+        console.log(data.payload);
+        setMessage(oldMessages => [...oldMessages, data.payload]);
+    }, ()=>{})
 }
 
 function OnFormSubmit(event: any, setMessage: Dispatch<SetStateAction<MessageInterface[]>>) {
@@ -13,6 +24,8 @@ function OnFormSubmit(event: any, setMessage: Dispatch<SetStateAction<MessageInt
         name: "User",
         message: event.target.query.value
     }]);
+
+    SendMessage(event.target.query.value, setMessage);
     return false;
 }
 
