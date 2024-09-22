@@ -135,3 +135,15 @@ Implement global exception handlers.
 ```
 Provide a fallback message and log the stack trace.
 ```
+
+## Evaluation Methodology
+Implement a basic evaluation to assess the bot's performance
+
+- Precision and Recall: Measure how well the bot retrieves relevant information.
+- F1 Score: Balance between precision and recall.
+- User Satisfaction: Collect user feedback on response usefulness.
+- Rating System: Allow users to rate responses.
+- Response Time: Track the time taken to respond to queries.
+- Error Rate & Logging: Monitor the frequency of errors or failed responses.
+- Automated Testing: Create a set of predefined queries and expected responses to test against.
+- Analytics Dashboard: Use tools like Google Analytics or custom dashboards to monitor user interactions and bot performance.
