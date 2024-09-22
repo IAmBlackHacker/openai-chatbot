@@ -3,10 +3,13 @@
 from idlelib.rpc import request_queue
 
 from flask import Flask
+from flask import request
+from flask_cors import CORS, cross_origin
 
 # Flask constructor takes the name of
 # current module (__name__) as argument.
 app = Flask(__name__)
+CORS(app, resources={r'/*': {'origins': '*'}}, supports_credentials=True)
 
 # The route() function of the Flask class is a decorator,
 # which tells the application which URL should call
@@ -20,11 +23,17 @@ def home_url():
 def health_url():
     return 'OK'
 
-@app.route('/api/query')
-def hello_from_server(request):
-    print(request)
+@app.route('/api/query', methods = ['POST'])
+# @cross_origin(origin='http://localhost:3000')
+def hello_from_server():
+    data = request.form
+    print(data)
     return {
-        "status": "OK"
+        "status": "SUCCESS",
+        "payload": {
+            "name": "Bot",
+            "message": "Hello"
+        }
     }
 
 # def get_gpt4_response(query):
