@@ -13,7 +13,7 @@ Technology Options: Java (Spring-Boot), Node.js, Python (Flask, Django).
 Technology Options: OpenAI's GPT-4 API, LLM
 
 #### **Knowledgebase:**
-Technology Options: SQL/NoSQL databases (PostgreSQL, MongoDB).
+Technology Options: Vector Search DB (eg. Milvus)
 
 ## Data Flow
 ![img_2.png](images/data_flow.png)
@@ -62,7 +62,7 @@ GPT-4 offers advanced language understanding and generation capabilities, reduci
 
 #### Database
 ```
-MongoDB
+Milvus
 ```
 Flexible schema design ideal for knowledgebases that may evolve over time.
 
