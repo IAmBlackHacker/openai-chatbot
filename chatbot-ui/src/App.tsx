@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {FormControl, InputGroup, Form, Button} from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App d-flex">
+        <div className={"container d-flex p-3"}>
+            <div className={"p-2 flex-fill d-flex bg-light border rounded"}>
+            <div className={"d-flex flex-column flex-fill overflow-hidden border rounded"}>
+                <div className={"flex-grow-1"}>
+                    <div className={"bg-dark text-white p-2 text-center"}>
+                        Chatbot UI
+                    </div>
+                </div>
+                <InputGroup className="">
+                    <Form.Control
+                        placeholder="User Query"
+                        aria-label="query"
+                        aria-describedby="basic-addon1"
+                    />
+                    <Button variant="primary" id="button-addon2">
+                        Send
+                    </Button>
+                </InputGroup>
+            </div>
+            </div>
+        </div>
     </div>
   );
 }
