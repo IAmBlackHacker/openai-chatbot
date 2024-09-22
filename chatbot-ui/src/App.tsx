@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useState} from 'react';
+import React, {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
 import './App.css';
 import {FormControl, InputGroup, Form, Button} from "react-bootstrap";
 import {BackendGETRequest, BackendPOSTRequest} from "./app/webrequests/BackendRequest";
@@ -32,23 +32,30 @@ function OnFormSubmit(event: any, setMessage: Dispatch<SetStateAction<MessageInt
 function App() {
     const [messages, setMessages] = useState<MessageInterface[]>([]);
     const [inputQuery, SetInputQuery] = useState("");
+    const chatBox = useRef(document.createElement("div"));
+
+    useEffect(() => {
+        chatBox.current.scrollTo({top: chatBox.current.scrollHeight, behavior: 'smooth'});
+    }, [messages]);
 
     return (
         <div className="App d-flex">
             <div className={"container d-flex p-3"}>
                 <div className={"p-2 flex-fill d-flex bg-light border rounded"}>
                     <div className={"d-flex flex-column flex-fill overflow-hidden border rounded"}>
-                        <div className={"flex-grow-1"}>
+                        <div className={"d-flex flex-column flex-grow-1 bg-white overflow-hidden pb-3"}>
                             <div className={"bg-dark text-white p-2 text-center"}>
                                 Chatbot UI
                             </div>
-                            <div className={"p-2"}>
-                                {
-                                    messages.map((message, index) => <div key={"message_" + index} className={"bg-success p-2 my-2 text-white rounded"}>
-                                        <p className={"m-0 fw-bold"}>{message.name}</p>
-                                        <p className={"m-0"}>{message.message}</p>
-                                    </div>)
-                                }
+                            <div ref={chatBox} className={"flex-grow-1 overflow-scroll"}>
+                                <div className={"p-2 px-3"}>
+                                    {
+                                        messages.map((message, index) => <div key={"message_" + index} className={`${message.name == "User"? "bg-primary text-white float-start": "bg-secondary-subtle float-end"} p-2 my-2 rounded w-75`}>
+                                            <p className={"m-0 fw-bold"}>{message.name}</p>
+                                            <p className={"m-0"}>{message.message}</p>
+                                        </div>)
+                                    }
+                                </div>
                             </div>
                         </div>
                         <Form onSubmit={(event) => {
