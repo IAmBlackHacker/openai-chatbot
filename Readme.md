@@ -1,5 +1,9 @@
 # Chatbot Application
-## Backend Server
+
+### Design Documentation
+https://github.com/IAmBlackHacker/openai-chatbot/blob/main/DesignDocument.md
+
+## Setup Backend Server
 ### Dependencies
 ```
 Python 3.10.9
@@ -43,7 +47,7 @@ python app.py
 
 Check that backend server should be running at http://localhost:5001
 
-## Frontend Server
+## Setup Frontend Server
 ### Install Dependencies
 ```
 node v20.17.0
