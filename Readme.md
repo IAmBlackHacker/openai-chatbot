@@ -62,3 +62,6 @@ yarn start
 ```
 
 Check that frontend server should be running at http://localhost:3000
+
+## Working Snapshot
+![img.png](images/img.png)
